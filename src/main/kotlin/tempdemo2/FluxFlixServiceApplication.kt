@@ -30,7 +30,7 @@ class FluxFlixServiceApplication {
 
     @Bean
     fun runner(mr: MovieRepository) = ApplicationRunner {
-        val movies = Flux.just("Silence of the Lambdas", "AEon Flux", "Back to the Future")
+        val movies = Flux.just("Thor", "AEon Flux", "Back to the Future")
                 .flatMap { mr.save(Movie(title = it)) }
         mr
                 .deleteAll()
